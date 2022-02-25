@@ -10,14 +10,11 @@ html {
   box-sizing: border-box;
   body {
     background-color: aliceblue;
-    margin: 0;
+    margin: 10px 0;
   }
 }
 
 .cake {
-  $self: &;
-
-  border: 1px solid black;
   height: 374px;
   width: 100%;
   display: flex;
@@ -38,8 +35,9 @@ html {
       width: 55px;
       border-radius: 2px;
       position: relative;
-      top: 5px;
-      left: 20px;
+      top: -15px;
+      left: 10px;
+      transform: rotate(130deg);
     }
     &--shine {
       background-color: $cream;
@@ -49,58 +47,121 @@ html {
       position: relative;
       top: 2px;
       left: 5px;
+      animation-name: shine;
+      animation-duration: 10s;
+      animation-iteration-count: infinite;
+      @keyframes shine {
+        0% {
+          background-color: $cream;
+        }
+        50% {
+          background-color: $jamAndcherry;
+        }
+        100% {
+          background-color: $cream;
+        }
+      }
     }
   }
 
   &__icing {
     width: 310px;
+    position: relative;
+    top: -60px;
+    height: 60px;
     &--top {
       min-height: 10px;
       background-color: $icingtop;
-      border-radius: 5px 5px 0 0;
+      border-radius: 10px 10px 0 0;
     }
     &--bottom {
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
-      &--sect-a {
-        min-height: 15px;
+      justify-content: space-between;
+
+      &--sect-a,
+      &--sect-b {
         background-color: $icingdrips;
-        width: 44.2px;
-        border-radius: 0 0 25px 25px;
+        transition: height 0.5s;
+        width: 45px;
+        border-radius: 0 0 50px 50px;
+      }
+
+      &--sect-a {
+        height: 20px;
       }
       &--sect-b {
-        min-width: 44.2px;
-        background-color: $icingdrips;
-        height: 30px;
-        border-radius: 0 0 25px 20px;
+        height: 35px;
       }
       &--sect-c {
-        min-width: 88.4px;
+        height: 25px;
+        width: 88.4px;
+        border-radius: 0 0 70px 70px;
         background-color: $icingdrips;
-        height: 20px;
-        border-radius: 0 0 25px 20px;
+        transition: height 0.5s;
+      }
+
+      &--sect-a:hover,
+      &--sect-b:hover,
+      &--sect-c:hover {
+        height: 60px;
+        cursor: pointer;
       }
     }
   }
+
   &__sponge {
-    min-height: 40px;
+    height: 60px;
     width: 300px;
     background-color: $sponge;
-  }
-  &__filling {
-    width: 310px;
-    &--jam {
-      border-radius: 5px;
-      min-height: 7px;
-      background-color: $jamAndcherry;
+    display: flex;
+    justify-content: center;
+    &--filling {
+      width: 310px;
+      &--jam {
+        border-radius: 5px;
+        min-height: 7px;
+        background-color: $jamAndcherry;
+
+        animation-name: example;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        @keyframes example {
+          0% {
+            background-color: $jamAndcherry;
+          }
+          50% {
+            background-color: chocolate;
+          }
+          100% {
+            background-color: $jamAndcherry;
+          }
+        }
+      }
+      &--cream {
+        min-height: 15px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        &--section-a,
+        &--section,
+        &--section-b {
+          width: 31px;
+          background-color: $cream;
+        }
+        &--section-a {
+          border-radius: 10px 0 10px 10px;
+        }
+        &--section {
+          border-radius: 0 0 10px 10px;
+        }
+        &--section-b {
+          border-radius: 0 15px 15px 15px;
+        }
+      }
     }
-    &--cream {
-      border-radius: 15px 15px;
-      min-height: 15px;
-      background-color: $cream;
-    }
   }
+
   &__plate {
     background-color: $plate;
     min-height: 60px;

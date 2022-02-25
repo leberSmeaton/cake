@@ -3,11 +3,10 @@ html {
 }
 html body {
   background-color: aliceblue;
-  margin: 0;
+  margin: 10px 0;
 }
 
 .cake {
-  border: 1px solid black;
   height: 374px;
   width: 100%;
   display: flex;
@@ -28,8 +27,9 @@ html body {
   width: 55px;
   border-radius: 2px;
   position: relative;
-  top: 5px;
-  left: 20px;
+  top: -15px;
+  left: 10px;
+  transform: rotate(130deg);
 }
 .cake__cherry--shine {
   background-color: #fff8ed;
@@ -39,55 +39,107 @@ html body {
   position: relative;
   top: 2px;
   left: 5px;
+  animation-name: shine;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+@keyframes shine {
+  0% {
+    background-color: #fff8ed;
+  }
+  50% {
+    background-color: #fe0046;
+  }
+  100% {
+    background-color: #fff8ed;
+  }
 }
 .cake__icing {
   width: 310px;
+  position: relative;
+  top: -60px;
+  height: 60px;
 }
 .cake__icing--top {
   min-height: 10px;
   background-color: #abb2ed;
-  border-radius: 5px 5px 0 0;
+  border-radius: 10px 10px 0 0;
 }
 .cake__icing--bottom {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+.cake__icing--bottom--sect-a, .cake__icing--bottom--sect-b {
+  background-color: #d9e0fa;
+  transition: height 0.5s;
+  width: 45px;
+  border-radius: 0 0 50px 50px;
 }
 .cake__icing--bottom--sect-a {
-  min-height: 15px;
-  background-color: #d9e0fa;
-  width: 44.2px;
-  border-radius: 0 0 25px 25px;
+  height: 20px;
 }
 .cake__icing--bottom--sect-b {
-  min-width: 44.2px;
-  background-color: #d9e0fa;
-  height: 30px;
-  border-radius: 0 0 25px 20px;
+  height: 35px;
 }
 .cake__icing--bottom--sect-c {
-  min-width: 88.4px;
+  height: 25px;
+  width: 88.4px;
+  border-radius: 0 0 70px 70px;
   background-color: #d9e0fa;
-  height: 20px;
-  border-radius: 0 0 25px 20px;
+  transition: height 0.5s;
+}
+.cake__icing--bottom--sect-a:hover, .cake__icing--bottom--sect-b:hover, .cake__icing--bottom--sect-c:hover {
+  height: 60px;
+  cursor: pointer;
 }
 .cake__sponge {
-  min-height: 40px;
+  height: 60px;
   width: 300px;
   background-color: #ffe6c6;
+  display: flex;
+  justify-content: center;
 }
-.cake__filling {
+.cake__sponge--filling {
   width: 310px;
 }
-.cake__filling--jam {
+.cake__sponge--filling--jam {
   border-radius: 5px;
   min-height: 7px;
   background-color: #fe0046;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
 }
-.cake__filling--cream {
-  border-radius: 15px 15px;
+@keyframes example {
+  0% {
+    background-color: #fe0046;
+  }
+  50% {
+    background-color: chocolate;
+  }
+  100% {
+    background-color: #fe0046;
+  }
+}
+.cake__sponge--filling--cream {
   min-height: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.cake__sponge--filling--cream--section-a, .cake__sponge--filling--cream--section, .cake__sponge--filling--cream--section-b {
+  width: 31px;
   background-color: #fff8ed;
+}
+.cake__sponge--filling--cream--section-a {
+  border-radius: 10px 0 10px 10px;
+}
+.cake__sponge--filling--cream--section {
+  border-radius: 0 0 10px 10px;
+}
+.cake__sponge--filling--cream--section-b {
+  border-radius: 0 15px 15px 15px;
 }
 .cake__plate {
   background-color: #e7edff;
