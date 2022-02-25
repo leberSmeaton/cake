@@ -7,7 +7,7 @@ html body {
 }
 
 .cake {
-  height: 374px;
+  height: 375px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -20,24 +20,27 @@ html body {
   width: 30px;
   border-radius: 50%;
   margin: 30px 50% 0 50%;
+  position: relative;
 }
-.cake__cherry--stick {
+.cake__cherry::before {
+  content: "";
+  position: absolute;
   background-color: #32a852;
   min-height: 4px;
   width: 55px;
   border-radius: 2px;
-  position: relative;
   top: -15px;
   left: 10px;
   transform: rotate(130deg);
 }
-.cake__cherry--shine {
+.cake__cherry::after {
+  content: "";
   background-color: #fff8ed;
   min-height: 4px;
   width: 3px;
   border-radius: 2px;
-  position: relative;
-  top: 2px;
+  position: absolute;
+  top: 5px;
   left: 5px;
   animation-name: shine;
   animation-duration: 10s;
@@ -54,64 +57,67 @@ html body {
     background-color: #fff8ed;
   }
 }
-.cake__icing {
+.cake__icing-wrapper {
   width: 310px;
   position: relative;
-  top: -60px;
+  top: -65px;
   height: 60px;
 }
-.cake__icing--top {
+.cake__icing-top {
   min-height: 10px;
   background-color: #abb2ed;
   border-radius: 10px 10px 0 0;
 }
-.cake__icing--bottom {
+.cake__icing-bottom-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.cake__icing--bottom--sect-a, .cake__icing--bottom--sect-b {
+.cake__icing-bottom-wrapper .cake__icing-bottom-short,
+.cake__icing-bottom-wrapper .cake__icing-bottom-long {
   background-color: #d9e0fa;
   transition: height 0.5s;
   width: 45px;
   border-radius: 0 0 50px 50px;
 }
-.cake__icing--bottom--sect-a {
+.cake__icing-bottom-wrapper .cake__icing-bottom-short {
   height: 20px;
 }
-.cake__icing--bottom--sect-b {
+.cake__icing-bottom-wrapper .cake__icing-bottom-long {
   height: 35px;
 }
-.cake__icing--bottom--sect-c {
+.cake__icing-bottom-wrapper .cake__icing-bottom-wide {
   height: 25px;
   width: 88.4px;
   border-radius: 0 0 70px 70px;
   background-color: #d9e0fa;
   transition: height 0.5s;
 }
-.cake__icing--bottom--sect-a:hover, .cake__icing--bottom--sect-b:hover, .cake__icing--bottom--sect-c:hover {
+.cake__icing-bottom-wrapper .cake__icing-bottom-short:hover,
+.cake__icing-bottom-wrapper .cake__icing-bottom-long:hover,
+.cake__icing-bottom-wrapper .cake__icing-bottom-wide:hover {
   height: 60px;
   cursor: pointer;
 }
-.cake__sponge {
+.cake__sponge-wrapper {
   height: 60px;
   width: 300px;
   background-color: #ffe6c6;
   display: flex;
   justify-content: center;
 }
-.cake__sponge--filling {
+.cake__sponge-filling {
   width: 310px;
 }
-.cake__sponge--filling--jam {
+.cake__sponge-filling .cake__sponge-filling-jam {
   border-radius: 5px;
   min-height: 7px;
   background-color: #fe0046;
-  animation-name: example;
+  animation-name: colourChange;
   animation-duration: 4s;
   animation-iteration-count: infinite;
 }
-@keyframes example {
+@keyframes colourChange {
   0% {
     background-color: #fe0046;
   }
@@ -122,29 +128,21 @@ html body {
     background-color: #fe0046;
   }
 }
-.cake__sponge--filling--cream {
+.cake__sponge-filling .cake__sponge-filling-cream {
   min-height: 15px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
-.cake__sponge--filling--cream--section-a, .cake__sponge--filling--cream--section, .cake__sponge--filling--cream--section-b {
+.cake__sponge-filling .cake__sponge-filling-cream span {
   width: 31px;
   background-color: #fff8ed;
-}
-.cake__sponge--filling--cream--section-a {
-  border-radius: 10px 0 10px 10px;
-}
-.cake__sponge--filling--cream--section {
   border-radius: 0 0 10px 10px;
-}
-.cake__sponge--filling--cream--section-b {
-  border-radius: 0 15px 15px 15px;
 }
 .cake__plate {
   background-color: #e7edff;
   min-height: 60px;
-  width: 374px;
+  width: 375px;
   border-radius: 50%;
   position: relative;
   top: -30px;

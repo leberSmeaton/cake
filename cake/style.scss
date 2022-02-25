@@ -2,12 +2,13 @@ $icingtop: #abb2ed;
 $icingdrips: #d9e0fa;
 $sponge: #ffe6c6;
 $cream: #fff8ed;
-$jamAndcherry: #fe0046;
+$jam-and-cherry: #fe0046;
 $cherrystem: #32a852;
 $plate: #e7edff;
 
 html {
   box-sizing: border-box;
+
   body {
     background-color: aliceblue;
     margin: 10px 0;
@@ -15,7 +16,7 @@ html {
 }
 
 .cake {
-  height: 374px;
+  height: 375px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -23,30 +24,36 @@ html {
   flex-flow: column wrap;
 
   &__cherry {
-    background-color: $jamAndcherry;
+    background-color: $jam-and-cherry;
     min-height: 30px;
     width: 30px;
     border-radius: 50%;
     margin: 30px 50% 0 50%;
+    position: relative;
 
-    &--stick {
+    &::before {
+      content: "";
+      position: absolute;
       background-color: $cherrystem;
       min-height: 4px;
       width: 55px;
       border-radius: 2px;
-      position: relative;
+      // position: relative;
       top: -15px;
       left: 10px;
       transform: rotate(130deg);
     }
-    &--shine {
+
+    &::after {
+      content: "";
       background-color: $cream;
       min-height: 4px;
       width: 3px;
       border-radius: 2px;
-      position: relative;
-      top: 2px;
+      position: absolute;
+      top: 5px;
       left: 5px;
+
       animation-name: shine;
       animation-duration: 10s;
       animation-iteration-count: infinite;
@@ -55,7 +62,7 @@ html {
           background-color: $cream;
         }
         50% {
-          background-color: $jamAndcherry;
+          background-color: $jam-and-cherry;
         }
         100% {
           background-color: $cream;
@@ -64,100 +71,97 @@ html {
     }
   }
 
-  &__icing {
+  &__icing-wrapper {
     width: 310px;
     position: relative;
-    top: -60px;
+    top: -65px;
     height: 60px;
-    &--top {
-      min-height: 10px;
-      background-color: $icingtop;
-      border-radius: 10px 10px 0 0;
+  }
+
+  &__icing-top {
+    min-height: 10px;
+    background-color: $icingtop;
+    border-radius: 10px 10px 0 0;
+  }
+
+  &__icing-bottom-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .cake__icing-bottom-short,
+    .cake__icing-bottom-long {
+      background-color: $icingdrips;
+      transition: height 0.5s;
+      width: 45px;
+      border-radius: 0 0 50px 50px;
     }
-    &--bottom {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
 
-      &--sect-a,
-      &--sect-b {
-        background-color: $icingdrips;
-        transition: height 0.5s;
-        width: 45px;
-        border-radius: 0 0 50px 50px;
-      }
+    .cake__icing-bottom-short {
+      height: 20px;
+    }
 
-      &--sect-a {
-        height: 20px;
-      }
-      &--sect-b {
-        height: 35px;
-      }
-      &--sect-c {
-        height: 25px;
-        width: 88.4px;
-        border-radius: 0 0 70px 70px;
-        background-color: $icingdrips;
-        transition: height 0.5s;
-      }
+    .cake__icing-bottom-long {
+      height: 35px;
+    }
 
-      &--sect-a:hover,
-      &--sect-b:hover,
-      &--sect-c:hover {
-        height: 60px;
-        cursor: pointer;
-      }
+    .cake__icing-bottom-wide {
+      height: 25px;
+      width: 88.4px;
+      border-radius: 0 0 70px 70px;
+      background-color: $icingdrips;
+      transition: height 0.5s;
+    }
+
+    .cake__icing-bottom-short:hover,
+    .cake__icing-bottom-long:hover,
+    .cake__icing-bottom-wide:hover {
+      height: 60px;
+      cursor: pointer;
     }
   }
 
-  &__sponge {
+  &__sponge-wrapper {
     height: 60px;
     width: 300px;
     background-color: $sponge;
     display: flex;
     justify-content: center;
-    &--filling {
-      width: 310px;
-      &--jam {
-        border-radius: 5px;
-        min-height: 7px;
-        background-color: $jamAndcherry;
+  }
 
-        animation-name: example;
-        animation-duration: 4s;
-        animation-iteration-count: infinite;
-        @keyframes example {
-          0% {
-            background-color: $jamAndcherry;
-          }
-          50% {
-            background-color: chocolate;
-          }
-          100% {
-            background-color: $jamAndcherry;
-          }
+  &__sponge-filling {
+    width: 310px;
+    .cake__sponge-filling-jam {
+      border-radius: 5px;
+      min-height: 7px;
+      background-color: $jam-and-cherry;
+
+      animation-name: colourChange;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+      @keyframes colourChange {
+        0% {
+          background-color: $jam-and-cherry;
+        }
+        50% {
+          background-color: chocolate;
+        }
+        100% {
+          background-color: $jam-and-cherry;
         }
       }
-      &--cream {
-        min-height: 15px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        &--section-a,
-        &--section,
-        &--section-b {
-          width: 31px;
-          background-color: $cream;
-        }
-        &--section-a {
-          border-radius: 10px 0 10px 10px;
-        }
-        &--section {
-          border-radius: 0 0 10px 10px;
-        }
-        &--section-b {
-          border-radius: 0 15px 15px 15px;
-        }
+    }
+
+    .cake__sponge-filling-cream {
+      min-height: 15px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+
+      & span {
+        width: 31px;
+        background-color: $cream;
+        border-radius: 0 0 10px 10px;
       }
     }
   }
@@ -165,7 +169,7 @@ html {
   &__plate {
     background-color: $plate;
     min-height: 60px;
-    width: 374px;
+    width: 375px;
     border-radius: 50%;
     position: relative;
     top: -30px;

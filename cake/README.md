@@ -2,10 +2,6 @@
 
 ![screenshot with solution](./images/screenshot-solution.png)
 
-### Links
-
-- [Live site URL here](https://laughing-almeida-fce662.netlify.app)
-
 ## My process
 
 ### Built with
