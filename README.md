@@ -1,8 +1,21 @@
-# coding-challenges
+## Make This Cake challenge
 
-For all new coding challenges, please:
-1. Check out main and pull any changes
-2. Check out a new branch
-3. Create a new folder
-4. Add your files
-5. When you're ready for review, add and commit your changes and create a new PR
+![screenshot with solution](./images/screenshot-solution.png)
+
+## My process
+
+### Built with
+
+- HTML
+- SCSS
+- Flexbox
+
+### What I learned
+
+Testing out using SCSS and using BEM naming techniques.
+
+I enjoyed applying CSS `transition: height 0.5s` to make the icing drip on hover.
+
+Playing around with an infinite colour animation on the jam turning it into chocolate filling.
+
+![screenshot with solution](./images/cake-vid.gif)
